@@ -16,14 +16,13 @@
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
 <html>
   <body>
-    <div id="root">
       <script type="module">
-        let root = document.getElementById('root')
+        let root = document.createElement('root')
+        document.body.append(root);
         let myDiv = document.createElement('div')
         myDiv.textContent = "Hello World";
         myDiv.className = "container"
         root.append(myDiv)
       </script>
-    </div>
   </body>
 </html>
