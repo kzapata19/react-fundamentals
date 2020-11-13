@@ -24,9 +24,30 @@
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
-    const elemProps = {children: 'Hello World', className: 'container'}
-    const elemType = 'div'
-    const reactElem = React.createElement(elemType, elemProps)
-    ReactDOM.render(reactElem, rootElement)
+    // const elemProps = {children: 'Hello World', className: 'container'}
+    // const elemType = 'div'
+    // const reactElem = React.createElement(elemType, elemProps)
+    // ReactDOM.render(reactElem, rootElement)
+
+    //EXTRA CREDIT
+    // See if you can figure out how to write the JavaScript + React code to generate this DOM output:
+
+    // <body>
+    //   <div id="root">
+    //     <div class="container">
+    //       <span>Hello</span>
+    //       <span>World</span>
+    //     </div>
+    //   </div>
+    // </body>
+//Create all the container div and the span tags suing React.createElement
+    const helloSpan = React.createElement('span', null, 'Hello') //note that span element params can be passed as type ('span'); props (null); children('Hello')
+    const worldSpan = React.createElement('span', {children: 'World'}) //note that span element params can be passed as type ('span'); props (children: 'World') - if more than one child, would use an array
+    const containerDiv = React.createElement('div', {className:'container'}, helloSpan, ' ', worldSpan);// note that children can be passed as arguments as a list or like below (an array):
+    // const containerDiv = React.createElement('div', {className: 'container'}, [helloSpan, ' ', worldSpan]) //this option will throw a warning saying that each child in the list should have a unique 'key' prop
+    // const containerDiv = React.createElement('div', {className: 'container', children: [helloSpan, ' ', worldSpan]}) //Children as pass as props here. Like above option, this will throw a warning saying that each child in the list should have a unique 'key' prop
+  
+//Append them
+   ReactDOM.render(containerDiv, rootElement)
   </script>
 </body>
