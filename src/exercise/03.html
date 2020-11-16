@@ -9,22 +9,50 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
 
   <script type="text/babel">
-    // 🐨 on the script tag above, change `type="module"`
-    // to `type="text/babel"` so babel will compile this code for the browser to run.
+    // // 🐨 on the script tag above, change `type="module"`
+    // // to `type="text/babel"` so babel will compile this code for the browser to run.
 
-    // 🐨 re-implement this using JSX!
-    // const element = React.createElement('div', {
-    //   className: 'container',
-    //   children: 'Hello World',
-    // })
-    const element = <div className='container'>Hello World</div>
+    // // 🐨 re-implement this using JSX!
+    // // const element = React.createElement('div', {
+    // //   className: 'container',
+    // //   children: 'Hello World',
+    // // })
+    // const element = <div className='container'>Hello World</div>
 
-    // 💰 there are a few subtle differences between JSX and HTML. One such
-    // difference is how you apply a class to an element in JSX is by using
-    // `className` rather than `class`!
-    // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
-    // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
+    // // 💰 there are a few subtle differences between JSX and HTML. One such
+    // // difference is how you apply a class to an element in JSX is by using
+    // // `className` rather than `class`!
+    // // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
+    // // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-    ReactDOM.render(element, document.getElementById('root'))
+    // ReactDOM.render(element, document.getElementById('root'))
+
+
+// <!-- EXTRA CREDIT #1
+// “Interpolation” is defined as "the insertion of something of a different nature into something else."
+
+// Let’s take template literals for example:
+
+// const greeting = 'Sup'
+// const subject = 'World'
+// const message = `${greeting} ${subject}`
+// See if you can figure out how to extract the className ("container") and children ("Hello World") to variables and interpolate them in the JSX.
+
+// const className = 'container'
+// const children = 'Hello World'
+// const element = <div className="hmmm">how do I make this work?</div>
+// 📜 The react docs for JSX are pretty good: https://reactjs.org/docs/introducing-jsx.html
+
+// Here are a few sections of particular interest for this extra credit:
+
+// https://reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx  
+// https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx -->
+    const container = "container"
+    const hello = "Hola"
+    const world = "Mundo"
+
+    const element = <div className={container}>{hello} {world}</div>
+
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
