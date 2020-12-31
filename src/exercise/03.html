@@ -28,31 +28,28 @@
     // ReactDOM.render(element, document.getElementById('root'))
 
 
-// <!-- EXTRA CREDIT #1
-// “Interpolation” is defined as "the insertion of something of a different nature into something else."
+// EXTRA CREDIT #2    
+// What if I have an object of props that I want applied to the div like this:
 
-// Let’s take template literals for example:
-
-// const greeting = 'Sup'
-// const subject = 'World'
-// const message = `${greeting} ${subject}`
-// See if you can figure out how to extract the className ("container") and children ("Hello World") to variables and interpolate them in the JSX.
-
-// const className = 'container'
 // const children = 'Hello World'
-// const element = <div className="hmmm">how do I make this work?</div>
-// 📜 The react docs for JSX are pretty good: https://reactjs.org/docs/introducing-jsx.html
+// const className = 'container'
+// const props = {children, className}
+// const element = <div /> // how do I apply props to this div?
+// If we were doing raw React APIs it would be:
 
-// Here are a few sections of particular interest for this extra credit:
+// const element = React.createElement('div', props)
+// Or, it could be written like this:
 
-// https://reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx  
-// https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx -->
-    const container = "container"
-    const hello = "Hola"
-    const world = "Mundo"
+// const element = React.createElement('div', {...props})
+// See if you can figure out how to make that work with JSX.
 
-    const element = <div className={container}>{hello} {world}</div>
+    const className = "container"
+    const children = "Hola Mundo"
+    const props = {className, children}
 
+    const element =  <div {...props}/>
+    //note: if you had additional attributes defined outside props variable, their sequence position inside the div will matter. 
+    // If attribute is placed after props variable, any relevant attributes defined in props will be overwritten by this attributes' definition. 
     ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
