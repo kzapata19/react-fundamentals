@@ -34,18 +34,18 @@
       </div>
     )
     */
-    /* Extra Creidt #2
-    const Message = (props) => {
+    // Extra Credit #2
+    const Message = (props) => { 
       return <div className="message">{props.children}</div>
     } 
 
     const element = (
       <div className="container">
-        {React.createElement(Message, {children: "Hello World"})}
-        {React.createElement(Message, {children: "Goodbye World"})}
-      </div>
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
+        </div>
     )
-    */
+    
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
   </script>
