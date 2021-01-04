@@ -34,7 +34,7 @@
       </div>
     )
     */
-    // Extra Credit #2
+    /* Extra Credit #2
     const Message = (props) => { 
       return <div className="message">{props.children}</div>
     } 
@@ -45,7 +45,35 @@
         <Message>Goodbye World</Message>
         </div>
     )
+    */ 
+   //Extra Credit #3
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    const PropTypes = {
+      string(props, propName, componentName) {
+        if(typeof props[propName] !== 'string') {
+          return new Error("Message must be a string")
+        } 
+      },
+    }
     
+    Message.propTypes = {
+      greeting: PropTypes.string,
+      subject: PropTypes.string,
+    }
+
+    const element = (
+      <div className="container">
+        <Message greeting="Hello" subject="World" />
+        <Message greeting="Goodbye" subject="World" />
+      </div>
+    )
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
   </script>
