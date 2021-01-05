@@ -77,7 +77,7 @@
     )
   */
 
-  //Extra Credit #4
+  /* Extra Credit #4
   function Message({greeting, subject}) {
     return (
       <div className="message">
@@ -96,6 +96,28 @@
       <Message greeting="Hello" subject="World" />
       <Message greeting="Goodbye" subject="World" />
     </div>
+  )
+  */     
+  //Extra Credit #5
+  function Message ({greeting, subject}) {
+    return (
+      <div className="message">
+        {greeting}, {subject}
+      </div>
+    )
+  }
+
+  Message.propTypes = {
+    greeting: PropTypes.string.isRequired,
+    subject: PropTypes.string.isRequired,
+  }
+
+  const element = (
+    //Use <React.Fragment> or short-hand <>
+    <>
+      <Message greeting="Hello" subject="World" />
+      <Message greeting="Goodbye" subject="World" />
+    </>
   )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
