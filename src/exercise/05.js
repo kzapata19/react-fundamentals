@@ -12,29 +12,51 @@ import '../box-styles.css'
 
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
+/******************************************************************************************/
+
+/*Extra Credit # 1 
+Try to make a custom <Box /> component that renders a div, accepts all the props and 
+merges the given style and className props with the shared values.
+
+I should be able to use it like so:
+
+<Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+  small lightblue box
+</Box>
+The box className and fontStyle: 'italic' style should be applied in addition to the values that come from props.*/
+
+function Box({className='', style, ...otherProps}) {
+  return (
+    <div className={`box ${className}`} style={{fontStyle: 'italic', ...style}}  
+      {...otherProps}
+     />
+  )
+}
+
 const smallBox = (
-  <div 
-    className="box box--small" 
-    style={{fontStyle: "italic", backgroundColor: "lightblue"}}
+  <Box 
+    className="box--small" 
+    style={{backgroundColor: "lightblue"}}
   >
     small lightblue box
-  </div>
+  </Box>
+
 )
 const mediumBox = (
-  <div 
-    className="box box--medium" 
-    style={{fontStyle: "italic", backgroundColor: "pink"}}
+  <Box 
+    className="box--medium" 
+    style={{backgroundColor: "pink"}}
   >
     medium pink box
-  </div>
+  </Box>
 )
 const largeBox = (
-  <div 
-    className="box box--large" 
-    style={{fontStyle: "italic",backgroundColor: "orange"}}
+  <Box 
+    className="box--large" 
+    style={{backgroundColor: "orange"}}
   >
     large orange box
-  </div>
+  </Box>
 )
 
 function App() {
@@ -43,6 +65,7 @@ function App() {
       {smallBox}
       {mediumBox}
       {largeBox}
+      <Box>sizeless box</Box> 
     </div>
   )
 }
