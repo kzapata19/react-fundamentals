@@ -25,8 +25,8 @@ function UsernameForm({onSubmitUsername}) {
   //   onSubmitUsername(value)
   // }
 
-//Use React.useRef to slect user input for Extra Credit 1
-  const userInput = React.useRef()
+//Use React.useRef to select user input for Extra Credit 1
+  const userInput = React.useRef(null)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -34,13 +34,23 @@ function UsernameForm({onSubmitUsername}) {
     onSubmitUsername(value);
   }
 
+  //Extra Credit 2
+  const [error, setError] = React.useState(null);
+
+  function handleChange(event) {
+    const {value} = event.target
+    const isValid = value === value.toLowerCase();
+    setError(isValid ? null : 'Input should be lowercased')
+  }
+
   return (
    <form onSubmit={handleSubmit}>
     <div>
       <label htmlFor="usernameInput">Username:</label>
-      <input ref={userInput} id="usernameInput" type="text" />
+      <input ref={userInput} id="usernameInput" type="text" onChange={handleChange}/>
     </div>
-    <button type="submit">Submit</button>
+    <div style={{color: 'red'}}>{error}</div>
+    <button disabled={Boolean(error)} type="submit">Submit</button>
     </form>
   )
 }
