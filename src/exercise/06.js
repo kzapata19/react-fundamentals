@@ -26,31 +26,44 @@ function UsernameForm({onSubmitUsername}) {
   // }
 
 //Use React.useRef to select user input for Extra Credit 1
-  const userInput = React.useRef(null)
+  //const userInput = React.useRef(null)
 
   function handleSubmit(event) {
     event.preventDefault()
-    const value = userInput.current.value;
-    onSubmitUsername(value);
+    //const value = userInput.current.value;
+    //onSubmitUsername(value); for EXTRA CREDIT 3, we no longer need to select the input from the form's elements 
+    //because we are already directly setting the input value. We set username to be the same as the event value   
+    onSubmitUsername(username)
   }
 
   //Extra Credit 2
-  const [error, setError] = React.useState(null);
+  // const [error, setError] = React.useState(null);
+
+  // function handleChange(event) {
+  //   const {value} = event.target
+  //   const isValid = value === value.toLowerCase();
+  //   setError(isValid ? null : 'Input should be lowercased')
+  // }
+//Extra Credit 3 - Control the input value
+  const [username, setUsername] = React.useState('')//empty string as the default behavior
 
   function handleChange(event) {
-    const {value} = event.target
-    const isValid = value === value.toLowerCase();
-    setError(isValid ? null : 'Input should be lowercased')
+    const {value} = event.target;
+    setUsername(value.toLowerCase());
   }
 
   return (
    <form onSubmit={handleSubmit}>
     <div>
       <label htmlFor="usernameInput">Username:</label>
-      <input ref={userInput} id="usernameInput" type="text" onChange={handleChange}/>
+      <input 
+        id="usernameInput" 
+        type="text" 
+        onChange={handleChange}
+        value={username}
+      />
     </div>
-    <div style={{color: 'red'}}>{error}</div>
-    <button disabled={Boolean(error)} type="submit">Submit</button>
+    <button type="submit">Submit</button>
     </form>
   )
 }
